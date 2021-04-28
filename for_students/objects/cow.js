@@ -29,8 +29,6 @@ export class Cow extends GrObject{
         
     }
 
-    
-
     stepWorld(delta, timeOfDay){
         this.time += delta / 100;
         if(!this.moving){
@@ -55,7 +53,7 @@ export class Cow extends GrObject{
             if(this.z != this.targetz){
                 this.z += this.zstep * delta/10;
             }
-            if(this.x > this.targetx - .05 && this.x < this.targetx +.05 && this.z > this.targetz - .1 && this.z < this.targetz +.1){
+            if(this.x > this.targetx - .15 && this.x < this.targetx +.15 && this.z > this.targetz - .15 && this.z < this.targetz +.15){
                 this.targetx = Math.random() * (-14)  - 4;
                 this.targetz = Math.random() * (-14)  + 4;
                 this.moving = !this.moving;

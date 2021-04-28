@@ -11,7 +11,6 @@ export class Wheat extends GrObject{
         let section5 = new T.Group();
         let section6 = new T.Group();
         
-
         let material = new T.MeshStandardMaterial({color:0xf5deb3});
         let stemGeom = new T.CylinderGeometry(.1,.1,1);
         let stem = new T.Mesh(stemGeom, material);
