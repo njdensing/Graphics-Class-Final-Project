@@ -15,15 +15,18 @@
  * file to instantiate those objects in the world.
  */
 
+import * as T from "../libs/CS559-Three/build/three.module.js";
 import { GrWorld } from "../libs/CS559-Framework/GrWorld.js";
 import { WorldUI } from "../libs/CS559-Framework/WorldUI.js";
 import { Car } from "./objects/car.js";
 import { Wheat } from "./objects/wheat.js";
 import { BrickHouse } from "./objects/buildings.js";
+import { GrObject } from "../libs/CS559-Framework/GrObject.js";
 
 
 
-/**m
+
+/**
  * The Graphics Town Main -
  * This builds up the world and makes it go...
  */
@@ -41,6 +44,10 @@ let world = new GrWorld({
 let car1 = new Car("car1", Math.random() * 16777215);
 
 world.add(car1);
+let cowloader = new T.ObjectLoader();
+cowloader.load("./cow.json", function ( obj ) { let cow = new GrObject("cow", obj);
+                                                 world.add(cow);
+                                                });
 
 
 const wheatScale = .35
@@ -51,7 +58,7 @@ const wheatZ = 5;
 let wheats = [];
 for(let i = 0; i < wheatRows; i++){
     for(let j = 0; j < WheatCols; j++){
-        wheats.push(new Wheat("Wheat" + (i * WheatCols + j)));
+        wheats.push(new Wheat("zzzWheat" + (i * WheatCols + j)));
         wheats[i*WheatCols + j].setPos(i + wheatX, 0 , -j + wheatZ);
         wheats[i*WheatCols + j].setScale(wheatScale);
         world.add(wheats[i*WheatCols + j]);
@@ -62,6 +69,7 @@ let house1 = new BrickHouse("house1");
 world.add(house1);
 house1.setScale(3.5);
 house1.setPos(15, 0, 13);
+car1.rideable;
 
 
 // while making your objects, be sure to identify some of them as "highlighted"
@@ -79,7 +87,7 @@ function highlight(obName) {
 }
 // of course, the student should highlight their own objects, not these
 highlight("car1");
-highlight("Wheat0");
+highlight("zzzWheat0");
 
 
 ///////////////////////////////////////////////////////////////

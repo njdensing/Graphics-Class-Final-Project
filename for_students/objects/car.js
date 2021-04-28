@@ -50,11 +50,6 @@ export class Car extends GrObject{
 
     stepWorld(delta, timeOfDay){
         this.time += delta / 100;
-        this.setPos((this.time % 40) - 20, 0, 7);
-        if( this.time % 40 <= 10) {
-            let carColor = Math.random() * 16777215;
-            this. = new T.Mesh(this.baseGeom, new T.MeshStandardMaterial({color:carColor}));
-            this
-        }
+        this.setPos((this.time % 40) - 20, 0, 10);
     }
 }
