@@ -195,7 +195,7 @@ highlight("house1");
 highlight("house2");
 highlight("tree1");
 highlight("road1");
-highlight("cow1");
+highlight("Cow1");
 
 ///////////////////////////////////////////////////////////////
 // build and run the UI
