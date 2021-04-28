@@ -1,4 +1,2 @@
 Advanced Thing: 
-
-Procedurally generated geometry: The leaves on the trees are created in random postions
 Complex Behavior: The cows move to a random point and then turn toward their next random point and move towards that forever.
