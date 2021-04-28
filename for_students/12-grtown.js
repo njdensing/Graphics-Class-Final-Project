@@ -17,8 +17,11 @@
 
 import { GrWorld } from "../libs/CS559-Framework/GrWorld.js";
 import { WorldUI } from "../libs/CS559-Framework/WorldUI.js";
+import { Car } from "./objects/car.js";
+import { Wheat } from "./objects/wheat.js";
+import { BrickHouse } from "./objects/buildings.js";
 
-import {main} from "../examples/main.js";
+
 
 /**m
  * The Graphics Town Main -
@@ -35,7 +38,31 @@ let world = new GrWorld({
 // put stuff into the world
 // this calls the example code (that puts a lot of objects into the world)
 // you can look at it for reference, but do not use it in your assignment
-main(world);
+let car1 = new Car("car1", Math.random() * 16777215);
+
+world.add(car1);
+
+
+const wheatScale = .35
+const wheatRows = 15;
+const WheatCols = 25;
+const wheatX = 5;
+const wheatZ = 5;
+let wheats = [];
+for(let i = 0; i < wheatRows; i++){
+    for(let j = 0; j < WheatCols; j++){
+        wheats.push(new Wheat("Wheat" + (i * WheatCols + j)));
+        wheats[i*WheatCols + j].setPos(i + wheatX, 0 , -j + wheatZ);
+        wheats[i*WheatCols + j].setScale(wheatScale);
+        world.add(wheats[i*WheatCols + j]);
+    }
+}
+
+let house1 = new BrickHouse("house1");
+world.add(house1);
+house1.setScale(3.5);
+house1.setPos(15, 0, 13);
+
 
 // while making your objects, be sure to identify some of them as "highlighted"
 
@@ -51,9 +78,9 @@ function highlight(obName) {
     }
 }
 // of course, the student should highlight their own objects, not these
-highlight("SimpleHouse-5");
-highlight("Helicopter-0");
-highlight("Track Car");
+highlight("car1");
+highlight("Wheat0");
+
 
 ///////////////////////////////////////////////////////////////
 // build and run the UI

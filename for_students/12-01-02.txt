@@ -1,15 +1,16 @@
 1. What is the difference between a bump map and a normal map?
 
-ANSWER HERE
+Bump maps only use black and white, while normal maps have rgb information and can therefore be more complex and realistic bumps
 
 2. What is the difference between a "correct skybox" and simply putting a big cube around the world?
 
-ANSWER HERE
+A correct skybox will stay the sime size as the camea zooms in or out and if the camera goes out for ever it will always show the background. IF there is a big cube around the world you could eventually zoom out past it
 
 3. Why is a sphere a good object for environment mapping, but a flat square is less good?
 
-ANSWER HERE
+the enviornment map is caclulated by using the direcrtion from the center of the object, so a flat square will have the points near the corners relecting at an angle instead of straight from the surface but the spehre all points of the surface will be facing the same direction that is calculated
 
 4. What are the main choices for how to represent environment map images? Why might you pick one or the other?
 
-ANSWER HERE
+Cubic and sphere are the main choices. Cubic work better on cybic objects and spheres work better on spheres.
+Cubic also have problems with the corners of the box, where spheres have problems around th poles of the map.
