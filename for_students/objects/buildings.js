@@ -88,7 +88,7 @@ export class BrickHouse extends GrObject{
 }
 
 export class BrickHouse2 extends GrObject{
-    constructor(){
+    constructor(name){
         const vertrexUVs = [
             new T.Vector2(0, 0),
             new T.Vector2(1, 0),
@@ -155,12 +155,12 @@ export class BrickHouse2 extends GrObject{
         let roof = new T.Mesh(roofGeom, roofMaterial)
         group.add(house, roof);
         group.rotateY(Math.PI/2);
-        super("house", group);
+        super(name, group);
     }
 }
 
 export class Tree extends GrObject{
-    constructor(){
+    constructor(name){
         let group = new T.Group();
 
         let trunk = new T.CylinderGeometry(.2, .2, 1);
@@ -178,6 +178,14 @@ export class Tree extends GrObject{
         group.add(trunkMesh);
         trunkMesh.add(leaves);
         trunkMesh.translateY(.5);
-        super("tree", group);
+        super(name, group);
+        this.time = 0;
+        this.leafs = leaves;
     }
+    stepWorld(delta, timeOfDay) {
+        this.time += delta / 1000;
+    
+        let currentpos = ((Math.sin(this.time) + 1 ) / 2 ) * -.1;
+        this.leafs.position.x = currentpos;
+  }
 }

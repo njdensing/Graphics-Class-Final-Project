@@ -90,7 +90,7 @@ export class Wheat extends GrObject{
     }
 
     stepWorld(delta, timeOfDay) {
-       this.time += delta / 1000;
+        this.time += delta / 1000;
     
         let currentAngle = ((Math.sin(this.time)  + 1 ) / 2 ) * Math.PI/16;
         this.section2.rotation.z = currentAngle;
@@ -98,7 +98,5 @@ export class Wheat extends GrObject{
         this.section4.rotation.z = currentAngle;
         this.section5.rotation.z = currentAngle;
         this.section6.rotation.z = currentAngle;
-        
-        
   }
 }

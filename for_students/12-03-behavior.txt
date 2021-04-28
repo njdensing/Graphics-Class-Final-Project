@@ -1,10 +1,10 @@
 Three different behaviors that you made:
-1. ???
-2. ???
-3. ???
+1. Wheat moves in wind
+2. Cow moves
+3. Car Moves
 
 One behavior that is not simple:
-Not simple: ???
+Not simple: cow moves to a random point, then stop and turn towards its next random point and moves to it
 
 Animated Articulated Figure:
-Articulated: ???
+Articulated: wheat

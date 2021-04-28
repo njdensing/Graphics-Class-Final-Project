@@ -3,6 +3,7 @@
 
 import * as T from "../../libs/CS559-Three/build/three.module.js";
 import { GrObject } from "../../libs/CS559-Framework/GrObject.js";
+import { SphereGeometry } from "../../libs/CS559-Three/build/three.module.js";
 
 // define your vehicles here - remember, they need to be imported
 // into the "main" program
@@ -40,16 +41,18 @@ export class Car extends GrObject{
         group.add(wheelBL);
         wheelBL.rotateX(Math.PI/2);
         wheelBL.position.set(-.7, .25, 1.25);
+        let driver = new T.Mesh(new T.SphereGeometry(.1), new T.MeshStandardMaterial());
+        driver.rotateY(Math.PI /2);
+        driver.position.set(.2,.8,0);
+        group.add(driver);
 
         super(name, group);
         this.time = 0;
-        this.group = group;
-        this.baseGeom = baseGeom;
-        
+        this.rideable = driver;
     }
 
     stepWorld(delta, timeOfDay){
         this.time += delta / 100;
         this.setPos((this.time % 40) - 20, 0, 10);
-    }
+    }  
 }
