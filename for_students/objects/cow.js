@@ -48,12 +48,12 @@ export class Cow extends GrObject{
         }
         if(this.moving){
             if(this.x != this.targetx){
-                this.x += this.xstep * delta/12;
+                this.x += this.xstep * delta/13;
             }
             if(this.z != this.targetz){
-                this.z += this.zstep * delta/12;
+                this.z += this.zstep * delta/13;
             }
-            if(this.x > this.targetx - .2 && this.x < this.targetx +.2 && this.z > this.targetz - .2 && this.z < this.targetz +.2){
+            if(this.x > this.targetx - .2 && this.x < this.targetx +.22 && this.z > this.targetz - .2 && this.z < this.targetz +.22){
                 this.targetx = Math.random() * (-14)  - 4;
                 this.targetz = Math.random() * (-14)  + 4;
                 this.moving = !this.moving;
